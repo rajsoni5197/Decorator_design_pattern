@@ -1,0 +1,65 @@
+@startuml decorator_design_pattern
+
+class Client
+{
+    Client();
+}
+Client-->Beverage
+Interface Beverage
+{
+    +virtual cost(): int;
+}
+
+class Cofee extends Beverage
+{
+    + cost(){override}: int;
+}
+
+class Tea extends Beverage
+{
+    +cost(){override}:int
+}
+
+class AddOns 
+{
+    -wrapee : Beverage
+    +Addons(Beverage) : void 
+    +cost(){override}:int 
+}
+Beverage<|---AddOns
+class WippedCream extends AddOns
+{
+    +WippedCream(Beverage):void;
+    +cost(){override}:int;
+}
+class ChocolateSyrup extends AddOns
+{
+    +ChocolateSyrup(Beverage):void;
+    +cost(){override}:int;
+}
+class Ginger extends AddOns
+{
+    +Ginger(Beverage):void 
+    +cost(){override}:int;
+}
+class Masala extends AddOns
+{
+    +Masala(Beverage):void
+    +cost(){override} :int
+}
+class Espresso extends  Cofee
+{
+    +cost(){override}:int
+}
+class Americano extends Cofee
+{
+    +cost(){override}:int
+}
+class GreenTea extends Tea
+{
+    +cost(){override}:int
+}
+class WhiteTea  extends Tea
+{
+    +cost(){override}:int
+}
